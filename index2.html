@@ -26,9 +26,9 @@
 
             <div class="col-4 ">
                 <div class="AAC d-flex mt-4 justify-content-between">
-                    <a onclick="visibleTasks()" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide1">All(<span id="countall"></span>)</a>
-                    <a onclick="ActiveTasks()" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide2">Active(<span id="countactive"></span>)</a>
-                    <a onclick="CompleteTasks()" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide3">Completed(<span id="countcompleted"></span>)</a>
+                    <a onclick="visibleTasks()" id = "a1" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide1">All(<span id="countall"></span>)</a>
+                    <a onclick="ActiveTasks()" id = "a2" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide2">Active(<span id="countactive"></span>)</a>
+                    <a onclick="CompleteTasks()" id = "a3" style="font-weight: 500; font-size: 14px; color: #09174A;" href="#" id="slide3">Completed(<span id="countcompleted"></span>)</a>
                 </div>
             </div>
            
@@ -44,7 +44,7 @@
 
                         <button onclick="clearCompleted()" type="button" class="btn "
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background: #FFFFFF;
-                        border: 1px solid #0C39C7;font-weight: 500;font-size: 16px;
+                        border: 1px solid #0C39C7;font-weight: 500;font-size: 16px;color: #0C39C7;
                         border-radius: 5px;">
                         Clear Completed Tasks
                         </button>
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div  id="activepara" class="row">
+            <div  id="activepara" class="row mt-2">
                 <p>Active Task</p>
             </div>
 
@@ -124,7 +124,7 @@
 
             </div>
 
-            <div id="completepara" class="row my-2">
+            <div id="completepara" class="row ">
               <p>Completed Tasks</p>
           </div>
           <div class="completecolumn" id="completecol">
@@ -143,19 +143,19 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+          <h5 class="modal-ed-add" id="exampleModalLabel">Add New Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Task Title<span class="text-danger">*</span></p>
+          <p class="pmodal">Task Title<span class="text-danger">*</span></p>
           <input type="text" placeholder="eg: Create two ad banners" class="form-control" name="" id="titleinput">
           
           <br>
-          <p>Description</p>
+          <p class="pmodal">Description</p>
           <textarea name="" placeholder="Add your task description." class="form-control" id="descinput" cols="30" rows="5"></textarea>
         
         <br>
-          <p>Due Date</p>
+          <p class="pmodal">Due Date</p>
           <input type="date" class="form-control" name="" id="dateinput">
         </div>
          

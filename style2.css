@@ -72,8 +72,15 @@ a{
 }
 
 .bi-trash::before{
-    color: red;
+    color: #D04444;
+    width: 24px;
+    height: 24px;
     
+}
+.bi-pencil-fill::before{
+    color: #7E7E7F;
+    width: 17.5px;
+    height: 17.5px;
 }
 #dltbtn{
     background-color: #FFFFFF;
@@ -89,8 +96,47 @@ a{
     line-height: 22px;
     color: #282829;
 }
+.dateclass{
+    font-weight: 500;
+    font-size: 15px;
+    color: #888888;
+}
+#completepara,#activepara{
+    font-weight: 600;
+    font-size: 18px;
+    color: #8B8B8B;
+}
+.modal-ed-add{
+    font-weight: 600;
+    font-size: 20px;
+    color: #09174A;
+}
+.pmodal{
+    font-weight: 500;
+    font-size: 16px;
+    color: #282829;
+}
+.dlt-mdlbdy{
+    font-weight: 500;
+    font-size: 16px;
+    color: #09174A;
+}
+.modal-dlt{
+    font-weight: 600;
+    font-size: 18px;
+    color: #09174A;
+}
+.dltbtn-red{
+    background: #C0070B;
+    border-radius: 6px;
+    width: 82px;
+    height: 38px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+}
 
-  
 
 
 

@@ -62,14 +62,20 @@ var todoobj = {
     countAll .innerHTML++
     displaytask()
     resetinput()
+    dateclosest()
     // datefunc()
     setlocal()
     
    
 }
 
-
-
+// let mydate = new Date();
+// let daydtest = mydate.getDate() 
+// let yeardt = mydate.getFullYear() 
+// let monthdt = mydate.getMonth() + 1
+// let todaydate = daydtest +"-" + monthdt+"-" + yeardt
+// console.log(todaydate)
+// console.log(daydtest)
 
 //date decoration : By dd month yyyy
 
@@ -97,6 +103,22 @@ var todoobj = {
 // }
 
 
+// function dateclosest(){
+//   for(i= 0 ; i < arr.length; i++) {
+    
+     
+//     console.log(todaydate);
+//     let dueday = arr[i].dateobj
+//     console.log(dueday)
+
+//   let diffDays = parseInt((todaydate - dueday) / (1000 * 60 * 60 * 24), 10)
+//     console.log(diffDays)
+//   }
+ 
+
+// }
+
+
 
 
 
@@ -119,7 +141,7 @@ allTasks.innerHTML +=  `<div class="activerow my-3" id="rowdiv">
     <span class="todoactiveone  d-flex gap-3 ">
           <input class="form-check-input rounded-circle check" onclick = "checkTask(${i});displayComplete();displaytask();completeValue()" id= "checkid${i}" style="width: 40px; height : 40px" type="checkbox">
               <p class="titleactive mt-1" id = "titletodo">${arr[i].titleobj}<p>
-              <img class="mt-2" src="/yellow.png" alt="">
+              <img class="mt-1" src="/yellow.png" alt="">
      </span>
     </div>
       
@@ -130,8 +152,8 @@ allTasks.innerHTML +=  `<div class="activerow my-3" id="rowdiv">
             <p class="dateclass " id="thedate">${arr[i].dateobj}</p>
         </span>
 
-      <span class= "todoactivetwo mb-3  ">
-        <button id="editbtn"  class = "border-0"><i data-bs-toggle="modal" data-bs-target="#edit${i}"   class="bi bi-pencil-fill border border-0 bg-light pe-4"></i></button>
+        <span class= "todoactivetwo mb-3  ">
+        </button id="editbtn"  class = "border-0"><i data-bs-toggle="modal" data-bs-target="#edit${i}"   class="bi bi-pencil-fill border border-0 bg-light pe-3"></i></>
         <button  id="dltbtn"  class = "border-0"> <i  data-bs-toggle="modal" data-bs-target="#delete${i}"  class="bi bi-trash  me-4 border border-0 bg-light"></i> </button>
       </span>
     
@@ -142,17 +164,17 @@ allTasks.innerHTML +=  `<div class="activerow my-3" id="rowdiv">
 <div class="modal fade" id="delete${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog"> 
         <div class="modal-content">
-          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="modal-header border-0 pt-4 d-flex justify-content-center">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-dlt fs-5" id="exampleModalLabel">Delete Task</h1>
             
           </div>
           <div class="modal-body d-flex justify-content-center">
-            <p>Are you sure you want to delete this task?</p>
+            <p class="dlt-mdlbdy">Are you sure you want to delete this task?</p>
           </div>
           <div class="modal-footer border-0 pb-5 d-flex justify-content-center gap-3">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button onclick =  "deleteTask(${i})" type="button" data-bs-dismiss="modal" class="btn btn-danger">delete</button>
+            <button onclick =  "deleteTask(${i})" type="button" data-bs-dismiss="modal" class="btn dltbtn-red">delete</button>
           </div>
         </div>
       </div>
@@ -167,19 +189,19 @@ allTasks.innerHTML +=  `<div class="activerow my-3" id="rowdiv">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+          <h5 class="modal-ed-add" id="exampleModalLabel">Edit Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Title<span class="text-danger">*</span></p>
+          <p class="pmodal">Title<span class="text-danger">*</span></p>
           <input type="text" class="form-control" name="" value="${arr[i].titleobj}" id="titleinputupdate${i}">
           
           <br>
-          <p>Description</p>
+          <p class="pmodal">Description</p>
           <textarea name="" class="form-control" id="descinputupdate${i}" cols="30" rows="10">${arr[i].descobj}</textarea>
         
         <br>
-          <p>Due Date</p>
+          <p class="pmodal">Due Date</p>
           <input type="date" class="form-control" name="" value="${arr[i].dateobj}" id="dateinputupdate${i}">
         </div>
          
@@ -297,7 +319,7 @@ function displayComplete(){
   <span class="todoactiveone  d-flex gap-3 ">
         <input class="form-check-input rounded-circle check" onclick = "checkTask(${i});displayComplete();displaytask();completeValue()" id= "checkid${i}" style="width: 40px; height : 40px" type="checkbox" checked>
             <p class="titleactive mt-1" id = "titletodo">${arr[i].titleobj}<p>
-            <img class="mt-2" src="/green.png" alt="">
+            <img class="mt-1" src="/green.png" alt="">
    </span>
   </div>
     
@@ -323,17 +345,17 @@ function displayComplete(){
 <div class="modal fade" id="delete${i}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog"> 
         <div class="modal-content">
-          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="modal-header border-0 pt-4 d-flex justify-content-center">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-dlt fs-5" id="exampleModalLabel">Delete Task</h1>
             
           </div>
           <div class="modal-body d-flex justify-content-center">
-            <p>Are you sure you want to delete this task?</p>
+            <p class="dlt-mdlbdy">Are you sure you want to delete this task?</p>
           </div>
           <div class="modal-footer border-0 pb-5 d-flex justify-content-center gap-3">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button onclick =  "deleteTask(${i})" type="button" data-bs-dismiss="modal" class="btn btn-danger">delete</button>
+            <button onclick =  "deleteTask(${i})" type="button" data-bs-dismiss="modal" class="dltbtn-red">delete</button>
           </div>
         </div>
       </div>
@@ -343,19 +365,19 @@ function displayComplete(){
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+          <h5 class="modal-ed-add" id="exampleModalLabel">Edit Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Title<span class="text-danger">*</span></p>
+          <p class="pmodal">Title<span class="text-danger">*</span></p>
           <input type="text" class="form-control" name="" value="${arr[i].titleobj}" id="titleinputupdate${i}">
           
           <br>
-          <p>Description</p>
+          <p class="pmodal">Description</p>
           <textarea name="" class="form-control" id="descinputupdate${i}" cols="30" rows="10">${arr[i].descobj}</textarea>
         
         <br>
-          <p>Due Date</p>
+          <p class="pmodal">Due Date</p>
           <input type="date" class="form-control" name="" value="${arr[i].dateobj}" id="dateinputupdate${i}">
         </div>
          
@@ -416,16 +438,21 @@ function clearCompleted(){
 
 }
 
-// let count = 0
+let count = 0
 
-// let completeValue = () => {
-//   for( j=0 ; j<arr.length; j++){
-//   if(arr[j].ischeck == true){
-//     count++ //invoked in checkbox and delete function
-//   }
-//   document.getElementById("countcompleted").innerHTML = count
-// }
-// }
+function completeValue(){
+  for( i=0 ; i<arr.length; i++){
+  if(arr[i].ischeck == true){
+     //invoked in checkbox and delete function
+    displaytask()
+    displayComplete()
+    count++
+  }
+  document.getElementById("countcompleted").innerHTML = count
+}
+}
+
+
 
 // let searchValue = () => {
 //   for(v=0;i < arr.length;i++){
@@ -485,11 +512,6 @@ for (var i = 0; i < arr.length; i++) {
 }
 
 }
-
-
-
-
-
 
 
 
