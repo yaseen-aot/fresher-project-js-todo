@@ -7,6 +7,9 @@ let allTasks = document.getElementById("activecol")
 let deletebtn = document.getElementById("dltbtn")
 let countAll = document.getElementById("countall")
 let completeCol = document.getElementById("completeCol")
+let arr = []
+
+getlocal()
 
 
 //addeventlistener for modal button to add task
@@ -29,27 +32,44 @@ function formValidation() {
 
  //creating array and objects
 let todoobj = {};
-let arr = []
+
 var arrlength = arr.length
+
+
+
+function setlocal(){
+  localStorage.setItem("arr", JSON.stringify(arr)) 
+}
+function getlocal(){
+   arr = JSON.parse(localStorage.getItem("arr")) || []
+ }
+displaytask()
+displayComplete()
 
 // const array = JSON.parse(localStorage.getItem('arr')) || []
 
 //pushing object into array and declaring keys to objects
-let dataStore = () => {
+function dataStore(){
 var todoobj = {
             titleobj : titleInput.value ,
             descobj : descInput.value ,
             dateobj :  dateInput.value ,
             ischeck : false     
      }
+    
     arr.push(todoobj)  
     console.log(arr)
     countAll .innerHTML++
     displaytask()
     resetinput()
-    datefunc()
+    // datefunc()
+    setlocal()
+    
    
 }
+
+
+
 
 //date decoration : By dd month yyyy
 
@@ -78,7 +98,7 @@ var todoobj = {
 
 
 
-// localStorage.setItem('arr',JSON.stringify(arr))
+
 
 
 //displaying active tasks 
@@ -147,11 +167,11 @@ allTasks.innerHTML +=  `<div class="activerow my-3" id="rowdiv">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Task Title<span class="text-danger">*</span></p>
+          <p>Title<span class="text-danger">*</span></p>
           <input type="text" class="form-control" name="" value="${arr[i].titleobj}" id="titleinputupdate${i}">
           
           <br>
@@ -199,6 +219,7 @@ function deleteTask(i){
     console.log(arr)
     countAll.innerHTML--
     completeValue()
+    setlocal()
     
  }
 
@@ -214,6 +235,7 @@ function editTask(i){
     displaytask()
     displayComplete()
     console.log("edited")
+    setlocal()
     
 }
 
@@ -223,12 +245,14 @@ function sortTitle(){
     if (a.titleobj.toLowerCase() < b.titleobj.toLowerCase())return -1;
     if (a.titleobj.toLowerCase() > b.titleobj.toLowerCase())return 1;
       return 0;
+      
     
   }
   );
  document.querySelector("#activecol").innerHTML = ""
   displaytask();
   displayComplete()
+  setlocal()
 
 }
 
@@ -246,6 +270,7 @@ function sortDate(){
  document.querySelector("#activecol").innerHTML = ""
   displaytask();
   displayComplete()
+  setlocal()
 }
 
 //checking the checkbox is true or false 
@@ -253,6 +278,7 @@ function checkTask(i){
   chkbox = document.getElementById(`checkid${i}`) 
   arr[i].ischeck = chkbox.checked
   console.log(arr)
+  setlocal()
 }
 
 //if checkbox is true,active task to completed tasks
@@ -317,11 +343,11 @@ function displayComplete(){
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Task Title<span class="text-danger">*</span></p>
+          <p>Title<span class="text-danger">*</span></p>
           <input type="text" class="form-control" name="" value="${arr[i].titleobj}" id="titleinputupdate${i}">
           
           <br>
@@ -385,6 +411,7 @@ function clearCompleted(){
   
   displaytask()
   displayComplete()
+  setlocal()
 
 
 }
