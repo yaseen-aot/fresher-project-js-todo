@@ -113,8 +113,6 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
 }
 }
 
-
-
 //checking the checkbox is true or false 
 function checkTask(indexcb){
     chkbox = document.getElementById(indexcb) 
@@ -169,7 +167,6 @@ function checkTask(indexcb){
 function buttoncall(x) {
     value = x;
 }
-
 
 //resetting input in addtask form after inputting
 function resetinput() {
@@ -246,8 +243,6 @@ function sortDate(){
   displayComplete()
   setlocal()
 }
-
-
 //displaying active task only
 function ActiveTasks(){
   document.getElementById("completecol").style.display = "none"
@@ -262,7 +257,6 @@ function CompleteTasks(){
   document.getElementById("activepara").style.display = "none"
   document.getElementById("completecol").style.display = "block"
   document.getElementById("completepara").style.display = "block"
-
 }
 //displaying all tasks 
 function visibleTasks (){
@@ -270,7 +264,6 @@ function visibleTasks (){
   document.getElementById("activepara").style.display = "block"
   document.getElementById("completecol").style.display = "block"
   document.getElementById("completepara").style.display = "block"
-
 }
 
 //deleting all completed tasks
@@ -289,13 +282,7 @@ function clearCompleted(){
   displayComplete()
   countfunc()
   setlocal()
-
-
-
 }
-
-
-
 function countfunc(){
     countAll.innerText = 0
     CountActive.innerText = 0
@@ -309,8 +296,8 @@ function countfunc(){
         CountActive.innerText++
     }
 }
+setlocal()
 }
-
 
 function searching(){
     let searchBox = document.getElementById("searchbox").value
@@ -332,8 +319,7 @@ function searching(){
         searchdisplayComplete()
 
     }
-    fiarray = []
-            
+    fiarray = []        
 }
 
 function searchdisplaytask(){
@@ -376,8 +362,6 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
 }
 }
 
-
-
 function searchdisplayComplete()
 {
     for(i=0;i<fiarray.length;i++){
@@ -412,6 +396,7 @@ function searchdisplayComplete()
     }
     }
 }
+
 
 
 //search
