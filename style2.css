@@ -136,61 +136,6 @@ a{
     font-size: 16px;
     color: #FFFFFF;
 }
-
-
-
-
-
-
-/* 
-.todoactive{
-    margin-block: 10px;
-    display: flex;
-    justify-content: space-between;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-    padding: 10px;
+.btntodo{
+    background-color: #FFFFFF;
 }
-.todoactivefirst{
-    display: flex;
-    column-gap: 10px;
-}
-
-.todoactivesecond{
-    margin-top: 22px;
-}
-
-.todoactivefour{
-   display: flex;
-   margin-left: 34px;
-}
-
-.checkbox-round {
-    width: 1.9em;
-    height: 1.9em;
-    background-color: white;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid #ddd;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
-}
-.checkbox-round:checked {
-    background-color: green;
-}
-.yellowdot{
-    height: 11px;
-    margin-top: 7px;
-}
-.editbtn{
-    padding-right: 15px;
-}
-.activecalender{
-    max-width: 18px;
-    max-height: 16px;
-    margin-top: 4px;
-    margin-right: 10px;
-} */
