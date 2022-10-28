@@ -139,3 +139,11 @@ a{
 .btntodo{
     background-color: #FFFFFF;
 }
+.calclass{
+    color: #A3A3A3;
+    
+}
+#rowdiv > div.todoactivefour.d-flex.justify-content-between.px-4 > span.twdoactivethree.d-flex.mt-2.ps-4 > i
+{
+    height: 22.5px;
+}

@@ -90,15 +90,15 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
     <span class="todoactiveone  d-flex gap-3 ">
           <input class="form-check-input rounded-circle check" onclick = "checkTask(this.id);displayComplete();displaytask()" id= "${i}" style="width: 40px; height : 40px" type="checkbox">
               <p class="titleactive mt-1" id = "titletodo">${arr[i].titleobj}<p>
-              <img class="mt-1" src="/yellow.png" alt="">
+              <img class="mt-1" src="/fresher-project-js-todo/joytodo/yellow.png" alt="">
      </span>
     </div>
       
     <div class="todoactivefour d-flex justify-content-between px-4 ">
 
-        <span class="twdoactivethree d-flex gap-3 mt-2 ps-4">
-            <img src="/blackcalender.png" style="height: 20px;" alt="">
-            <p class="dateclass " id="thedate">${"By" +" " + arr[i].dateobj}</p>
+        <span class="twdoactivethree d-flex  mt-2 ps-4">
+          <i class="calclass${i} bi bi-calendar4-week pe-2"></i>
+            <p class="dateclass " id="date${i}">${"by" +" " + arr[i].dateobj}</p>
         </span>
 
         <span class= "todoactivetwo mb-3  ">
@@ -109,7 +109,7 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
 </div>
 </div>  `
       }
-      
+      dateondue(i)
 }
 }
 
@@ -138,15 +138,15 @@ function checkTask(indexcb){
     <span class="todoactiveone  d-flex gap-3 ">
           <input class="form-check-input rounded-circle check" onclick = "checkTask(this.id);displayComplete();displaytask()" id= "${i}" style="width: 40px; height : 40px" type="checkbox" checked>
               <p class="titleactive mt-1" id = "titletodo">${arr[i].titleobj}<p>
-              <img class="mt-1" src="/green.png" alt="">
+              <img class="mt-1" src="/fresher-project-js-todo/joytodo/green.png" alt="">
      </span>
     </div>
       
     <div class="todoactivefour d-flex justify-content-between px-4 ">
   
-        <span class="twdoactivethree d-flex gap-3 mt-2 ps-4">
-            <img src="/blackcalender.png" style="height: 20px;" alt="">
-            <p class="dateclass " id="thedate">${"By" +" " +arr[i].dateobj}</p>
+        <span class="twdoactivethree d-flex  mt-2 ps-4">
+          <i class="calclass${i} bi bi-calendar4-week pe-2"></i>
+            <p class="dateclass " id="date${i}">${"by" +" " +arr[i].dateobj}</p>
         </span>
   
       <span class= "todoactivetwo mb-3  ">
@@ -163,6 +163,7 @@ function checkTask(indexcb){
       }
     }
   }
+  // <img src="/fresher-project-js-todo/joytodo/blackcalender.png" style="height: 20px;" alt=""></img>
 
 function buttoncall(x) {
     value = x;
@@ -209,6 +210,8 @@ function editTask(){
         setlocal()
 }  
 }
+
+
 
 //sorting with title value
 function sortTitle(){
@@ -339,15 +342,15 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
     <span class="todoactiveone  d-flex gap-3 ">
           <input class="form-check-input rounded-circle check" onclick = "checkTask(this.id);displayComplete();displaytask()" id= "${fiarray[i]}" style="width: 40px; height : 40px" type="checkbox">
               <p class="titleactive mt-1" id = "titletodo">${arr[fiarray[i]].titleobj}<p>
-              <img class="mt-1" src="/yellow.png" alt="">
+              <img class="mt-1" src="/fresher-project-js-todo/joytodo/yellow.png" alt="">
      </span>
     </div>
       
     <div class="todoactivefour d-flex justify-content-between px-4 ">
 
-        <span class="twdoactivethree d-flex gap-3 mt-2 ps-4">
-            <img src="/blackcalender.png" style="height: 20px;" alt="">
-            <p class="dateclass " id="thedate">${"By" +" " + arr[fiarray[i]].dateobj}</p>
+        <span class="twdoactivethree d-flex  mt-2 ps-4">
+          <i class="calclass${i} bi bi-calendar4-week pe-2"></i>
+            <p class="dateclass " id="date${i}">${"by" +" " + arr[fiarray[i]].dateobj}</p>
         </span>
 
         <span class= "todoactivetwo mb-3  ">
@@ -357,6 +360,7 @@ allTasks.innerHTML +=  `    <div class="activerow my-3" id="rowdiv">
     
 </div>
 </div>  `
+
       }
       
 }
@@ -371,15 +375,15 @@ function searchdisplayComplete()
           <span class="todoactiveone  d-flex gap-3 ">
                 <input class="form-check-input rounded-circle check" onclick = "checkTask(this.id);displayComplete();displaytask()" id= "${fiarray[i]}"  style="width: 40px; height : 40px" type="checkbox" checked>
                     <p class="titleactive mt-1" id = "titletodo">${arr[fiarray[i]].titleobj}<p>
-                    <img class="mt-1" src="/green.png" alt="">
+                    <img class="mt-1" src="/fresher-project-js-todo/joytodo/green.png" alt="">
            </span>
           </div>
             
           <div class="todoactivefour d-flex justify-content-between px-4 ">
         
-              <span class="twdoactivethree d-flex gap-3 mt-2 ps-4">
-                  <img src="/blackcalender.png" style="height: 20px;" alt="">
-                  <p class="dateclass " id="thedate">${"By" +" " + arr[fiarray[i]].dateobj}</p>
+              <span class="twdoactivethree d-flex  mt-2 ps-4">
+                <i class="calclass${i} bi bi-calendar4-week pe-2"></i>
+                  <p class="dateclass " id="date${i}"> ${"by" +" " + arr[fiarray[i]].dateobj}</p>
               </span>
         
             <span class= "todoactivetwo mb-3  ">
@@ -396,6 +400,31 @@ function searchdisplayComplete()
     }
     }
 }
+
+function dateondue(index){
+  let mydate = new Date();
+console.log(mydate)
+let yourdate = new Date(arr[index].dateobj)
+console.log(yourdate)
+if(mydate < yourdate)
+{
+  console.log("rrr")
+  document.querySelector (`#date${index}`).style.backgroundColor = "rgba(192, 53, 3, 0.06)"
+  document.querySelector (`.calclass${index}`).style.backgroundColor =  "rgba(192, 53, 3, 0.06)"
+  
+}
+}
+
+// function getDate(index) {
+//   let currentDate = new Date();
+//   let todoDAte = new Date(activeArray[index].date);
+//   if(currentDate > todoDAte)
+//   { 
+//     document.getElementById(`date${index}`).style.color = " #C03503";
+//     document.getElementById(`date${index}`).style.backgroundColor = "rgba(192, 53, 3, 0.06)";
+//   }
+  
+// }
 
 
 
